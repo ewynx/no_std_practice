@@ -1,0 +1,19 @@
+[package]
+name = "no_std_practice"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+# START This disables unwinding. 
+# Fixes error "error: language item required, but not found: `eh_personality`"
+# the profile used for `cargo build`
+[profile.dev]
+panic = "abort"
+
+# the profile used for `cargo build --release`
+[profile.release]
+panic = "abort"
+# END
